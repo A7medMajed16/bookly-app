@@ -1,7 +1,6 @@
-import 'package:bookly_app/constants.dart';
-import 'package:bookly_app/core/utils/assets_data.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/app_logo_with_title.dart';
-import 'package:flutter/cupertino.dart';
+
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_book_listview.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/home_view_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -13,30 +12,16 @@ class HomeViewBody extends StatelessWidget {
 
     return Padding(
       padding: EdgeInsets.only(
-          top: size.width / 20, right: size.width / 40, left: size.width / 40),
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                AppLogoWithTitle(
-                  logoScale: size.width / 30,
-                  titleSize: size.width / 15,
-                  titleLetterSpacing: size.width / 100,
-                  imageSource: AssetsData.appLogo,
-                ),
-                IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      CupertinoIcons.search,
-                      color: kIconsColor,
-                      size: size.width / 12,
-                    ))
-              ],
-            )
-          ],
-        ),
+          top: size.width / 20, right: size.width / 30, left: size.width / 30),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          HomeViewAppBar(size: size),
+          SizedBox(
+            height: size.height / 50,
+          ),
+          FeaturedBooksListView(size: size),
+        ],
       ),
     );
   }
