@@ -119,7 +119,7 @@ class Initialise extends State<SplashViewBody>
   void splashToHome() {
     Future.delayed(
       const Duration(seconds: 3),
-      () => Get.to(
+      () => Get.off(
         () => const HomeView(),
         transition: Transition.fade,
         duration: kTransitionDuration,
