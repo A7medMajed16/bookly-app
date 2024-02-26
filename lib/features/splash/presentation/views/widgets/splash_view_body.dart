@@ -1,44 +1,37 @@
+import 'package:bookly_app/constants.dart';
 import 'package:bookly_app/core/utils/assets_data.dart';
+import 'package:bookly_app/features/home/presentation/views/home_view.dart';
+import 'package:bookly_app/features/splash/presentation/views/widgets/sliding_image.dart';
 import 'package:bookly_app/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
 
   @override
-  State<SplashViewBody> createState() => _SplashViewBodyState();
+  State<SplashViewBody> createState() => Initialise();
 }
 
-class _SplashViewBodyState extends State<SplashViewBody>
+class Initialise extends State<SplashViewBody>
     with SingleTickerProviderStateMixin {
+  //Variables
   late AnimationController splashViewAnimationController;
   late Animation<Offset> logoSlidingAnimation;
   late Animation<Offset> appNameSlidingAnimation;
   late Animation<Offset> sloganSlidingAnimation;
 
+  //Initialise  Function
   @override
   void initState() {
-    splashViewAnimationController =
-        AnimationController(vsync: this, duration: const Duration(seconds: 1));
-    //Logo animation
-    logoSlidingAnimation =
-        Tween<Offset>(begin: const Offset(0, -0.5), end: Offset.zero)
-            .animate(splashViewAnimationController);
-    //Logo animation
-    appNameSlidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
-            .animate(splashViewAnimationController);
-    //Logo animation
-    sloganSlidingAnimation =
-        Tween<Offset>(begin: const Offset(0, 2), end: Offset.zero)
-            .animate(splashViewAnimationController);
-    splashViewAnimationController.forward();
-
+    initSlidingAnimations();
+    splashToHome();
     super.initState();
   }
 
+  //Dispose Function
   @override
   void dispose() {
     splashViewAnimationController.dispose();
@@ -54,15 +47,10 @@ class _SplashViewBodyState extends State<SplashViewBody>
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          AnimatedBuilder(
-            animation: logoSlidingAnimation,
-            builder: (BuildContext context, Widget? child) => SlideTransition(
-              position: logoSlidingAnimation,
-              child: Image.asset(
-                AssetsData.appLogo,
-                scale: size.width / 100,
-              ),
-            ),
+          SlidingImage(
+            slidingAnimation: logoSlidingAnimation,
+            scale: size.width / 100,
+            imageSource: AssetsData.appLogo,
           ),
           SlidingText(
             slidingAnimation: appNameSlidingAnimation,
@@ -73,12 +61,68 @@ class _SplashViewBodyState extends State<SplashViewBody>
           ),
           SlidingText(
             slidingAnimation: sloganSlidingAnimation,
-            text: 'All magic is here',
+            text: 'all magic is here',
             fontSize: size.width / 25,
             letterSpacing: 0,
             fontFamily: 'Inter',
           ),
         ],
+      ),
+    );
+  }
+
+  //Initialise the animations function
+  void initSlidingAnimations() {
+    initSplashAnimationController();
+    //Logo animation
+    initLogoSlidingAnimation();
+    //Logo animation
+    initNameSlidingAnimation();
+    //Logo animation
+    initSloganSlidingAnimation();
+    splashViewAnimationController.forward();
+  }
+
+  //Initialise SplashView animation controller function
+  void initSplashAnimationController() {
+    splashViewAnimationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 1),
+    );
+  }
+
+  //Initialise Logo animation function
+  void initLogoSlidingAnimation() {
+    logoSlidingAnimation = Tween<Offset>(
+      begin: const Offset(0, -0.5),
+      end: Offset.zero,
+    ).animate(splashViewAnimationController);
+  }
+
+  //Initialise Name animation function
+  void initNameSlidingAnimation() {
+    appNameSlidingAnimation = Tween<Offset>(
+      begin: const Offset(0, 1),
+      end: Offset.zero,
+    ).animate(splashViewAnimationController);
+  }
+
+  //Initialise Slogan animation function
+  void initSloganSlidingAnimation() {
+    sloganSlidingAnimation = Tween<Offset>(
+      begin: const Offset(0, 4),
+      end: Offset.zero,
+    ).animate(splashViewAnimationController);
+  }
+
+  //navigate to home page function
+  void splashToHome() {
+    Future.delayed(
+      const Duration(seconds: 3),
+      () => Get.to(
+        () => const HomeView(),
+        transition: Transition.fade,
+        duration: kTransitionDuration,
       ),
     );
   }
