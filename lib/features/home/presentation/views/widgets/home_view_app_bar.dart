@@ -7,28 +7,22 @@ import 'package:flutter/material.dart';
 class HomeViewAppBar extends StatelessWidget {
   const HomeViewAppBar({
     super.key,
-    required this.size,
   });
-
-  final Size size;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        AppLogoWithTitle(
-          logoScale: size.width / 30,
-          titleSize: size.width / 15,
-          titleLetterSpacing: size.width / 100,
+        const AppLogoWithTitle(
           imageSource: AssetsData.appLogo,
         ),
         IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               CupertinoIcons.search,
               color: kIconsColor,
-              size: size.width / 12,
+              size: 40,
             ))
       ],
     );

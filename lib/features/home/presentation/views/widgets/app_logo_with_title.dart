@@ -1,17 +1,12 @@
+import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
 class AppLogoWithTitle extends StatelessWidget {
   const AppLogoWithTitle({
     super.key,
-    required this.titleSize,
-    required this.logoScale,
-    required this.titleLetterSpacing,
     required this.imageSource,
   });
 
-  final double logoScale;
-  final double titleSize;
-  final double titleLetterSpacing;
   final String imageSource;
 
   @override
@@ -20,15 +15,11 @@ class AppLogoWithTitle extends StatelessWidget {
       children: [
         Image.asset(
           imageSource,
-          scale: logoScale,
+          scale: 13,
         ),
-        Text(
+        const Text(
           "BoOKLY",
-          style: TextStyle(
-            fontSize: titleSize,
-            letterSpacing: titleLetterSpacing,
-            fontFamily: 'Pirata',
-          ),
+          style: Styles.titleApp,
         ),
       ],
     );
