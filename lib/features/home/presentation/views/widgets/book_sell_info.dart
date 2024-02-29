@@ -19,7 +19,8 @@ class BookSellInfo extends StatelessWidget {
           width: size.width / 2,
           child: const Text(
             "The Jungle Book",
-            overflow: TextOverflow.clip,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
             style: Styles.titleBook,
           ),
         ),
@@ -30,7 +31,8 @@ class BookSellInfo extends StatelessWidget {
           width: size.width / 2,
           child: const Text(
             "Justin Marks, Rudyard Kipling",
-            overflow: TextOverflow.clip,
+            overflow: TextOverflow.ellipsis,
+            maxLines: 2,
             style: Styles.titleAuthor,
           ),
         ),

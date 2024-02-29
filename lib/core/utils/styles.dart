@@ -18,20 +18,21 @@ abstract class Styles {
   static const titleAuthor = TextStyle(
     fontFamily: "Inter",
     fontSize: 15,
+    color: Colors.grey,
   );
   static const titlePrice = TextStyle(
     fontFamily: "Inter",
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: FontWeight.bold,
   );
   static const titleRate = TextStyle(
     fontFamily: "Inter",
-    fontSize: 18,
+    fontSize: 16,
     fontWeight: FontWeight.bold,
   );
   static const titleRaters = TextStyle(
     fontFamily: "Inter",
-    fontSize: 15,
+    fontSize: 14,
     color: Colors.grey,
   );
 }

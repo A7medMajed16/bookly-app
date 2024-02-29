@@ -9,6 +9,7 @@ class BestSellerPriceAndRate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Row(
+      mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(
           child: Text(
@@ -18,7 +19,7 @@ class BestSellerPriceAndRate extends StatelessWidget {
           ),
         ),
         SizedBox(
-          width: 50,
+          width: 37,
         ),
         Text(
           "⭐️ 4.8/5",
