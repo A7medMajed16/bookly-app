@@ -16,7 +16,6 @@ class BookCard extends StatelessWidget {
       child: Container(
         margin: const EdgeInsets.only(left: 20),
         decoration: const BoxDecoration(
-          color: Colors.red,
           borderRadius: BorderRadius.all(Radius.circular(10)),
           image: DecorationImage(
             fit: BoxFit.fill,
