@@ -1,3 +1,5 @@
+import 'package:bookly_app/features/home/presentation/views/widgets/book_card.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailBody extends StatelessWidget {
@@ -5,6 +7,12 @@ class BookDetailBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Column(
+      children: [
+        BookDetailsAppBar(),
+        SizedBox(height: 27),
+        BookCard(aspectRatio: 2.7 / 4)
+      ],
+    );
   }
 }
