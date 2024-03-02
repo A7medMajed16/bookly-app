@@ -39,7 +39,9 @@ class BookSellInfo extends StatelessWidget {
         const SizedBox(
           height: 5,
         ),
-        const BestSellerPriceAndRate(),
+        const BestSellerPriceAndRate(
+          withPrice: true,
+        ),
       ],
     );
   }

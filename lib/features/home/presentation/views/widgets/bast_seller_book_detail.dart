@@ -4,29 +4,34 @@ import 'package:flutter/material.dart';
 class BestSellerPriceAndRate extends StatelessWidget {
   const BestSellerPriceAndRate({
     super.key,
+    required this.withPrice,
   });
+
+  final bool withPrice;
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
-        SizedBox(
-          child: Text(
-            "199.9 \$",
-            overflow: TextOverflow.clip,
-            style: Styles.titlePrice,
-          ),
-        ),
-        SizedBox(
-          width: 37,
-        ),
-        Text(
+        withPrice
+            ? Container(
+                margin: const EdgeInsets.only(right: 37),
+                child: const SizedBox(
+                  child: Text(
+                    "199.9 \$",
+                    overflow: TextOverflow.clip,
+                    style: Styles.titlePrice,
+                  ),
+                ),
+              )
+            : const SizedBox(),
+        const Text(
           "⭐️ 4.8/5",
           overflow: TextOverflow.clip,
           style: Styles.titleRate,
         ),
-        Text(
+        const Text(
           "  (16820)",
           overflow: TextOverflow.clip,
           style: Styles.titleRaters,

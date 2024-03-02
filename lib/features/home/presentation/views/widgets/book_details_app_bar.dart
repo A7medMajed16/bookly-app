@@ -14,7 +14,7 @@ class BookDetailsAppBar extends StatelessWidget {
           icon: const Icon(
             Icons.close_rounded,
             color: Colors.white,
-            size: 50,
+            size: 40,
           ),
         ),
         IconButton(
@@ -22,7 +22,7 @@ class BookDetailsAppBar extends StatelessWidget {
           icon: const Icon(
             Icons.shopping_cart_outlined,
             color: Colors.white,
-            size: 40,
+            size: 35,
           ),
         ),
       ],
