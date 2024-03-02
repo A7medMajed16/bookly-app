@@ -1,13 +1,14 @@
-import 'package:bookly_app/core/utils/assets_data.dart';
 import 'package:flutter/material.dart';
 
 class BookCard extends StatelessWidget {
   const BookCard({
     super.key,
     required this.aspectRatio,
+    required this.sourceImage,
   });
 
   final double aspectRatio;
+  final String sourceImage;
 
   @override
   Widget build(BuildContext context) {
@@ -15,11 +16,11 @@ class BookCard extends StatelessWidget {
       aspectRatio: aspectRatio,
       child: Container(
         margin: const EdgeInsets.only(left: 20),
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10)),
+        decoration: BoxDecoration(
+          borderRadius: const BorderRadius.all(Radius.circular(10)),
           image: DecorationImage(
             fit: BoxFit.fill,
-            image: AssetImage(AssetsData.testImage),
+            image: AssetImage(sourceImage),
           ),
         ),
       ),

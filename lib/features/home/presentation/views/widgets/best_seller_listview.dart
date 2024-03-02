@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:bookly_app/core/utils/assets_data.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_card.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_sell_info.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +27,7 @@ class BestSellerListView extends StatelessWidget {
                   height: size.height / 5,
                   child: const BookCard(
                     aspectRatio: 2.7 / 4,
+                    sourceImage: AssetsData.testImage,
                   ),
                 ),
                 const SizedBox(
