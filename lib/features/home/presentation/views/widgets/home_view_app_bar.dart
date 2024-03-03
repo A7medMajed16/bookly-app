@@ -1,8 +1,10 @@
 import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets_data.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/app_logo_with_title.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeViewAppBar extends StatelessWidget {
   const HomeViewAppBar({
@@ -18,7 +20,9 @@ class HomeViewAppBar extends StatelessWidget {
           imageSource: AssetsData.appLogo,
         ),
         IconButton(
-            onPressed: () {},
+            onPressed: () {
+              GoRouter.of(context).push(AppRouter.kSearchView);
+            },
             icon: const Icon(
               CupertinoIcons.search,
               color: kIconsColor,
