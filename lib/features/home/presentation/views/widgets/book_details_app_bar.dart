@@ -18,7 +18,7 @@ class BookDetailsAppBar extends StatelessWidget {
           ),
         ),
         IconButton(
-          onPressed: () => GoRouter.of(context).pop(),
+          onPressed: () {},
           icon: const Icon(
             Icons.shopping_cart_outlined,
             color: Colors.white,
