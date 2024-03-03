@@ -1,4 +1,5 @@
 import 'package:bookly_app/features/search/presentation/views/widgets/custom_search_box.dart';
+import 'package:bookly_app/features/search/presentation/views/widgets/search_result_section.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -9,8 +10,13 @@ class SearchViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.all(25),
-      child: Column(
-        children: [CustomSearchBox()],
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            CustomSearchBox(),
+            SearchResultSection(),
+          ],
+        ),
       ),
     );
   }

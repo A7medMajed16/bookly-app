@@ -6,7 +6,8 @@ class SlidingText extends StatelessWidget {
     required this.slidingAnimation,
     required this.text,
     required this.fontSize,
-    required this.letterSpacing, required this.fontFamily,
+    required this.letterSpacing,
+    required this.fontFamily,
   });
 
   final Animation<Offset> slidingAnimation;
@@ -15,7 +16,6 @@ class SlidingText extends StatelessWidget {
   final String fontFamily;
   final double fontSize;
   final double letterSpacing;
-  
 
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,9 @@
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/utils/assets_data.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:go_router/go_router.dart';
 
 class YouCanAlsoLikeListView extends StatelessWidget {
   const YouCanAlsoLikeListView({super.key});
@@ -14,11 +17,15 @@ class YouCanAlsoLikeListView extends StatelessWidget {
           physics: const ScrollPhysics(parent: BouncingScrollPhysics()),
           itemCount: 15,
           itemBuilder: (context, index) {
-            return const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-              child: BookCard(
-                aspectRatio: 2.7 / 4,
-                sourceImage: AssetsData.testImage,
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+              child: GestureDetector(
+                onTap: () =>
+                    GoRouter.of(context).push(AppRouter.kBookDetailsView),
+                child: const BookCard(
+                  aspectRatio: 2.7 / 4,
+                  sourceImage: AssetsData.testImage,
+                ),
               ),
             );
           }),

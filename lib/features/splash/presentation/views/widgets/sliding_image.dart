@@ -1,11 +1,11 @@
-
 import 'package:flutter/cupertino.dart';
 
 class SlidingImage extends StatelessWidget {
   const SlidingImage({
     super.key,
     required this.slidingAnimation,
-    required this.scale, required this.imageSource,
+    required this.scale,
+    required this.imageSource,
   });
 
   final Animation<Offset> slidingAnimation;
