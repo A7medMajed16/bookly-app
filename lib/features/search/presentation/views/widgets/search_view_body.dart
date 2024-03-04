@@ -11,6 +11,7 @@ class SearchViewBody extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.all(25),
       child: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
         child: Column(
           children: [
             CustomSearchBox(),

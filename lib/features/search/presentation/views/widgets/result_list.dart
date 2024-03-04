@@ -14,7 +14,7 @@ class CustomResultListView extends StatelessWidget {
     return ListView.builder(
       itemCount: 10,
       shrinkWrap: true,
-      physics: const ScrollPhysics(parent: BouncingScrollPhysics()),
+      physics: const ScrollPhysics(parent: NeverScrollableScrollPhysics()),
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(bottom: 20),
