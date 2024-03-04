@@ -31,7 +31,7 @@ class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
             sourceImage: AssetsData.testImage,
           ),
         ),
-        itemCount: 10,
+        itemCount: 50,
         itemSize: widget.size.height * 2.7 / 12,
         dynamicItemSize: true,
         onItemFocus: (index) {
