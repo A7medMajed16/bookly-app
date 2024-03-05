@@ -13,24 +13,32 @@ class ServerFailure extends Failure {
     switch (dioException.type) {
       case DioExceptionType.connectionTimeout:
         return ServerFailure('Connection Timeout');
+
       case DioExceptionType.sendTimeout:
         return ServerFailure('Send Timeout');
+
       case DioExceptionType.receiveTimeout:
         return ServerFailure('Receive Timeout');
+
       case DioExceptionType.badCertificate:
         return ServerFailure('Bad Certificate');
+
       case DioExceptionType.badResponse:
         return ServerFailure.fromResponse(
             dioException.response!.statusCode!, dioException.response!.data);
+
       case DioExceptionType.cancel:
         return ServerFailure('Request Cancelled');
+
       case DioExceptionType.connectionError:
         return ServerFailure('Connection Error');
+
       case DioExceptionType.unknown:
         if (dioException.message!.contains('SocketException')) {
           return ServerFailure('No Internet Connection');
         }
         return ServerFailure('Unknown Error');
+
       default:
         return ServerFailure(
             'Oops there was an Error, Pleas try  again later!');
