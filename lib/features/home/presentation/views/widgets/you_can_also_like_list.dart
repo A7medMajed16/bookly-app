@@ -1,5 +1,5 @@
 import 'package:bookly_app/core/utils/app_router.dart';
-import 'package:bookly_app/core/utils/assets_data.dart';
+
 import 'package:bookly_app/features/home/presentation/views/widgets/book_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -24,7 +24,8 @@ class YouCanAlsoLikeListView extends StatelessWidget {
                     GoRouter.of(context).push(AppRouter.kBookDetailsView),
                 child: const BookCard(
                   aspectRatio: 2.7 / 4,
-                  sourceImage: AssetsData.testImage,
+                  imageUrl:
+                      'https://th.bing.com/th/id/OIP.7TCIbjpgeB9zecWAIaMmjQHaK-?rs=1&pid=ImgDetMain',
                 ),
               ),
             );
