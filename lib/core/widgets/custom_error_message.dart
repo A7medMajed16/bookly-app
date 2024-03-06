@@ -10,7 +10,10 @@ class CustomErrorMessage extends StatelessWidget {
     return Center(
       child: Text(
         errorMessage,
-        style: Styles.titlePrice.copyWith(color: Colors.red),
+        textAlign: TextAlign.center,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 2,
+        style: Styles.titlePrice.copyWith(color: Colors.red, fontSize: 15),
       ),
     );
   }

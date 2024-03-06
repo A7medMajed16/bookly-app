@@ -6,7 +6,7 @@ import 'panelization_summary.dart';
 import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
-  final String? title;
+  final String title;
   final List<String>? authors;
   final String? publishedDate;
   final String? description;
@@ -16,6 +16,8 @@ class VolumeInfo extends Equatable {
   final String? printType;
   final List<String>? categories;
   final String? maturityRating;
+
+  final int? ratingsCount;
   final bool? allowAnonLogging;
   final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
@@ -26,7 +28,7 @@ class VolumeInfo extends Equatable {
   final String? canonicalVolumeLink;
 
   const VolumeInfo({
-    this.title,
+    required this.title,
     this.authors,
     this.publishedDate,
     this.description,
@@ -44,10 +46,11 @@ class VolumeInfo extends Equatable {
     this.previewLink,
     this.infoLink,
     this.canonicalVolumeLink,
+    this.ratingsCount,
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) => VolumeInfo(
-        title: json['title'] as String?,
+        title: json['title'] as String,
         authors: (json['authors'] as List<dynamic>?)?.cast<String>(),
         publishedDate: json['publishedDate'] as String?,
         description: json['description'] as String?,
@@ -74,6 +77,8 @@ class VolumeInfo extends Equatable {
         previewLink: json['previewLink'] as String?,
         infoLink: json['infoLink'] as String?,
         canonicalVolumeLink: json['canonicalVolumeLink'] as String?,
+        ratingsCount:
+            json['ratingsCount'] == null ? null : json['ratingsCount'] as int?,
       );
 
   Map<String, dynamic> toJson() => {

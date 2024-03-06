@@ -1,4 +1,4 @@
-import 'package:bookly_app/features/home/presentation/views/widgets/bast_seller_book_detail.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/newest_books_detail.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_action_buttons.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_book_info_section.dart';
@@ -19,7 +19,12 @@ class BookDetailBody extends StatelessWidget {
           const BookDetailsAppBar(),
           BookDetailsSection(width: width),
           const SizedBox(height: 20),
-          const BestSellerPriceAndRate(withPrice: false),
+          const NewestBooksPriceAndRate(
+            withPrice: false,
+            bookPrice: 0,
+            bookRate: 0,
+            bookRateCounts: 0,
+          ),
           const SizedBox(height: 20),
           const BookDetailsActionsButtons(),
           const SizedBox(height: 20),

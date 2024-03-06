@@ -1,13 +1,19 @@
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerPriceAndRate extends StatelessWidget {
-  const BestSellerPriceAndRate({
+class NewestBooksPriceAndRate extends StatelessWidget {
+  const NewestBooksPriceAndRate({
     super.key,
     required this.withPrice,
+    required this.bookPrice,
+    required this.bookRate,
+    required this.bookRateCounts,
   });
 
   final bool withPrice;
+  final int bookPrice;
+  final int bookRate;
+  final int bookRateCounts;
 
   @override
   Widget build(BuildContext context) {
@@ -17,22 +23,22 @@ class BestSellerPriceAndRate extends StatelessWidget {
         withPrice
             ? Container(
                 margin: const EdgeInsets.only(right: 37),
-                child: const SizedBox(
+                child: SizedBox(
                   child: Text(
-                    "199.9 \$",
+                    "$bookPrice \$",
                     overflow: TextOverflow.clip,
                     style: Styles.titlePrice,
                   ),
                 ),
               )
             : const SizedBox(),
-        const Text(
-          "⭐️ 4.8/5",
+        Text(
+          bookRate == -1 ? "Not rate" : "⭐️ $bookRate/5",
           overflow: TextOverflow.clip,
           style: Styles.titleRate,
         ),
-        const Text(
-          "  (16820)",
+        Text(
+          bookRateCounts == -1 ? '' : '(  $bookRateCounts)',
           overflow: TextOverflow.clip,
           style: Styles.titleRaters,
         )
