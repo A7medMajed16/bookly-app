@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:bookly_app/core/utils/assets_data.dart';
 
 import 'package:bookly_app/core/widgets/custom_error_message.dart';
 
@@ -31,14 +32,17 @@ class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
               itemBuilder: (context, index) => GestureDetector(
                 onTap: () {
                   if (index == selectedItem) {
-                    GoRouter.of(context).push(AppRouter.kBookDetailsView);
+                    GoRouter.of(context).push(
+                      AppRouter.kBookDetailsView,
+                      extra: state.books[index],
+                    );
                   }
                 },
                 child: BookCard(
                     aspectRatio: 2.7 / 4,
-                    imageUrl: state
-                            .books[index].volumeInfo.imageLinks?.thumbnail ??
-                        'https://th.bing.com/th/id/OIP.WAifvNHsavzRSECO6oG5bAAAAA?rs=1&pid=ImgDetMain'),
+                    imageUrl:
+                        state.books[index].volumeInfo.imageLinks?.thumbnail ??
+                            AssetsData.noCoverImageLink),
               ),
               itemCount: state.books.length,
               itemSize: widget.size.height * 2.7 / 12,

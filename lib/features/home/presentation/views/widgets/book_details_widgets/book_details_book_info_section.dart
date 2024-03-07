@@ -1,31 +1,41 @@
+import 'package:bookly_app/core/utils/assets_data.dart';
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/core/widgets/book_card.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:flutter/material.dart';
 
 class BookDetailsSection extends StatelessWidget {
   const BookDetailsSection({
     super.key,
     required this.width,
+    required this.bookModel,
   });
-
+  final BookModel bookModel;
   final double width;
 
   @override
   Widget build(BuildContext context) {
+    String authors;
+    if (bookModel.volumeInfo.authors == null) {
+      authors = 'Unknown Author';
+    } else {
+      authors = bookModel.volumeInfo.authors!.join(',');
+    }
     return Column(
       children: [
         const SizedBox(height: 27),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: width * 0.19),
-          child: const BookCard(
+          child: BookCard(
             aspectRatio: 2.7 / 4,
-            imageUrl:
-                'https://th.bing.com/th/id/OIP.7TCIbjpgeB9zecWAIaMmjQHaK-?rs=1&pid=ImgDetMain',
+            imageUrl: bookModel.volumeInfo.imageLinks?.thumbnail ??
+                AssetsData.noCoverImageLink,
           ),
         ),
         const SizedBox(height: 32),
         Text(
-          "The Jungle Book",
+          bookModel.volumeInfo.title ?? "No title available",
+          textAlign: TextAlign.center,
           overflow: TextOverflow.ellipsis,
           maxLines: 2,
           style: Styles.titleBook
@@ -33,9 +43,8 @@ class BookDetailsSection extends StatelessWidget {
         ),
         const SizedBox(height: 6),
         Text(
-          "Justin Marks, Rudyard Kipling",
-          overflow: TextOverflow.ellipsis,
-          maxLines: 2,
+          authors,
+          textAlign: TextAlign.center,
           style: Styles.titleAuthor
               .copyWith(fontSize: 18, fontStyle: FontStyle.italic),
         ),

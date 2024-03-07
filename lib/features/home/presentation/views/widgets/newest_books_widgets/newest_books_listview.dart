@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:bookly_app/core/utils/assets_data.dart';
 import 'package:bookly_app/core/widgets/book_details_loading_card.dart';
 import 'package:bookly_app/core/widgets/custom_error_message.dart';
 
@@ -27,8 +28,9 @@ class NewestBooksListView extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 20),
                 child: GestureDetector(
-                  onTap: () =>
-                      GoRouter.of(context).push(AppRouter.kBookDetailsView),
+                  onTap: () => GoRouter.of(context).push(
+                      AppRouter.kBookDetailsView,
+                      extra: state.books[index]),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +41,7 @@ class NewestBooksListView extends StatelessWidget {
                           aspectRatio: 2.7 / 4,
                           imageUrl: state.books[index].volumeInfo.imageLinks
                                   ?.thumbnail ??
-                              'https://th.bing.com/th/id/OIP.WAifvNHsavzRSECO6oG5bAAAAA?rs=1&pid=ImgDetMain',
+                              AssetsData.noCoverImageLink,
                         ),
                       ),
                       const SizedBox(
