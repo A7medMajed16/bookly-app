@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/newest_books_detail.dart';
 import 'package:flutter/material.dart';
@@ -8,23 +9,23 @@ class BookSellInfo extends StatelessWidget {
   const BookSellInfo({
     super.key,
     required this.size,
-    required this.bookName,
     required this.bookPrice,
-    required this.bookRate,
-    required this.bookAuthors,
-    required this.bookRateCounts,
+    required this.bookModel,
   });
 
   final Size size;
-  final String bookName;
   final int bookPrice;
-  final int bookRate;
-  final int bookRateCounts;
-  final List<String>? bookAuthors;
+  final BookModel bookModel;
 
   @override
   Widget build(BuildContext context) {
-    String authors = bookAuthors!.join(',');
+    String authors;
+    if (bookModel.volumeInfo.authors == null) {
+      authors = 'Unknown Author';
+    } else {
+      authors = bookModel.volumeInfo.authors!.join(',');
+    }
+
     return BlocBuilder<NewestBooksCubit, NewestBooksState>(
       builder: (context, state) {
         return Column(
@@ -33,7 +34,7 @@ class BookSellInfo extends StatelessWidget {
             SizedBox(
               width: size.width / 2,
               child: Text(
-                bookName,
+                bookModel.volumeInfo.title!,
                 overflow: TextOverflow.ellipsis,
                 maxLines: 2,
                 style: Styles.titleBook,
@@ -57,8 +58,7 @@ class BookSellInfo extends StatelessWidget {
             NewestBooksPriceAndRate(
               withPrice: true,
               bookPrice: bookPrice,
-              bookRate: bookRate,
-              bookRateCounts: bookRateCounts,
+              volumeInfo: bookModel.volumeInfo,
             ),
           ],
         );

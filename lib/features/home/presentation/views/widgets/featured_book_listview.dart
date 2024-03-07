@@ -1,8 +1,10 @@
 import 'package:bookly_app/core/utils/app_router.dart';
+
 import 'package:bookly_app/core/widgets/custom_error_message.dart';
-import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
+
 import 'package:bookly_app/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/core/widgets/book_card.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_list_shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -34,7 +36,7 @@ class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
                 },
                 child: BookCard(
                   aspectRatio: 2.7 / 4,
-                  imageUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                  imageUrl: state.books[index].volumeInfo.imageLinks!.thumbnail,
                 ),
               ),
               itemCount: state.books.length,
@@ -48,7 +50,7 @@ class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
         } else if (state is FeaturedBooksFailure) {
           return CustomErrorMessage(errorMessage: state.errorMessage);
         } else {
-          return const CustomLoadingIndicator();
+          return const FeaturedListShimmerLoading();
         }
       },
     );

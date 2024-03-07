@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/styles.dart';
+import 'package:bookly_app/features/home/data/models/book_model/volume_info.dart';
 import 'package:flutter/material.dart';
 
 class NewestBooksPriceAndRate extends StatelessWidget {
@@ -6,14 +7,12 @@ class NewestBooksPriceAndRate extends StatelessWidget {
     super.key,
     required this.withPrice,
     required this.bookPrice,
-    required this.bookRate,
-    required this.bookRateCounts,
+    required this.volumeInfo,
   });
 
   final bool withPrice;
   final int bookPrice;
-  final int bookRate;
-  final int bookRateCounts;
+  final VolumeInfo volumeInfo;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +24,7 @@ class NewestBooksPriceAndRate extends StatelessWidget {
                 margin: const EdgeInsets.only(right: 37),
                 child: SizedBox(
                   child: Text(
-                    "$bookPrice \$",
+                    bookPrice == 0 ? "Free" : "$bookPrice \$",
                     overflow: TextOverflow.clip,
                     style: Styles.titlePrice,
                   ),
@@ -33,12 +32,16 @@ class NewestBooksPriceAndRate extends StatelessWidget {
               )
             : const SizedBox(),
         Text(
-          bookRate == -1 ? "Not rate" : "⭐️ $bookRate/5",
+          volumeInfo.averageRating == null
+              ? "Not rate"
+              : "⭐️ ${volumeInfo.averageRating}/5",
           overflow: TextOverflow.clip,
           style: Styles.titleRate,
         ),
         Text(
-          bookRateCounts == -1 ? '' : '(  $bookRateCounts)',
+          volumeInfo.ratingsCount == null
+              ? ''
+              : '  (${volumeInfo.ratingsCount})',
           overflow: TextOverflow.clip,
           style: Styles.titleRaters,
         )

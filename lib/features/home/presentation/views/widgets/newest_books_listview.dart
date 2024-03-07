@@ -1,10 +1,9 @@
 import 'dart:math';
-
 import 'package:bookly_app/core/utils/app_router.dart';
+import 'package:bookly_app/core/widgets/book_details_loading_card.dart';
 import 'package:bookly_app/core/widgets/custom_error_message.dart';
-import 'package:bookly_app/core/widgets/custom_loading_indicator.dart';
-import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 
+import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly_app/core/widgets/book_card.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_sell_info.dart';
 import 'package:flutter/material.dart';
@@ -14,19 +13,7 @@ import 'package:go_router/go_router.dart';
 class NewestBooksListView extends StatelessWidget {
   NewestBooksListView({super.key, required this.size});
   final Size size;
-  final List<int> prices = [
-    120,
-    150,
-    123,
-    178,
-    265,
-    258,
-    214,
-    985,
-    1025,
-    600,
-    539
-  ];
+  final List<int> prices = [120, 150, 123, 178, 265, 1025, 600, 539, 0];
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NewestBooksCubit, NewestBooksState>(
@@ -50,8 +37,12 @@ class NewestBooksListView extends StatelessWidget {
                         height: size.height / 5,
                         child: BookCard(
                           aspectRatio: 2.7 / 4,
-                          imageUrl: state
-                              .books[index].volumeInfo.imageLinks.thumbnail,
+                          imageUrl: state.books[index].volumeInfo.imageLinks
+                                      ?.thumbnail ==
+                                  null
+                              ? 'https://th.bing.com/th/id/OIP.WAifvNHsavzRSECO6oG5bAAAAA?rs=1&pid=ImgDetMain'
+                              : state.books[index].volumeInfo.imageLinks!
+                                  .thumbnail,
                         ),
                       ),
                       const SizedBox(
@@ -59,13 +50,8 @@ class NewestBooksListView extends StatelessWidget {
                       ),
                       BookSellInfo(
                         size: size,
-                        bookName: state.books[index].volumeInfo.title,
                         bookPrice: prices[Random().nextInt(prices.length)],
-                        bookRate:
-                            state.books[index].volumeInfo.ratingsCount ?? -1,
-                        bookAuthors: state.books[index].volumeInfo.authors,
-                        bookRateCounts:
-                            state.books[index].volumeInfo.ratingsCount ?? -1,
+                        bookModel: state.books[index],
                       ),
                     ],
                   ),
@@ -76,7 +62,7 @@ class NewestBooksListView extends StatelessWidget {
         } else if (state is NewestBooksFailure) {
           return CustomErrorMessage(errorMessage: state.errorMessage);
         } else {
-          return const CustomLoadingIndicator();
+          return const LoadingShimmerList();
         }
       },
     );
