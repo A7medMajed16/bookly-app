@@ -38,11 +38,8 @@ class NewestBooksListView extends StatelessWidget {
                         child: BookCard(
                           aspectRatio: 2.7 / 4,
                           imageUrl: state.books[index].volumeInfo.imageLinks
-                                      ?.thumbnail ==
-                                  null
-                              ? 'https://th.bing.com/th/id/OIP.WAifvNHsavzRSECO6oG5bAAAAA?rs=1&pid=ImgDetMain'
-                              : state.books[index].volumeInfo.imageLinks!
-                                  .thumbnail,
+                                  ?.thumbnail ??
+                              'https://th.bing.com/th/id/OIP.WAifvNHsavzRSECO6oG5bAAAAA?rs=1&pid=ImgDetMain',
                         ),
                       ),
                       const SizedBox(

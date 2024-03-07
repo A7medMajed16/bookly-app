@@ -35,13 +35,10 @@ class _FeaturedBooksListViewState extends State<FeaturedBooksListView> {
                   }
                 },
                 child: BookCard(
-                  aspectRatio: 2.7 / 4,
-                  imageUrl: state
-                              .books[index].volumeInfo.imageLinks?.thumbnail ==
-                          null
-                      ? 'https://th.bing.com/th/id/OIP.WAifvNHsavzRSECO6oG5bAAAAA?rs=1&pid=ImgDetMain'
-                      : state.books[index].volumeInfo.imageLinks!.thumbnail,
-                ),
+                    aspectRatio: 2.7 / 4,
+                    imageUrl: state
+                            .books[index].volumeInfo.imageLinks?.thumbnail ??
+                        'https://th.bing.com/th/id/OIP.WAifvNHsavzRSECO6oG5bAAAAA?rs=1&pid=ImgDetMain'),
               ),
               itemCount: state.books.length,
               itemSize: widget.size.height * 2.7 / 12,

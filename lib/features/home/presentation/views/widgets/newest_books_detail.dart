@@ -33,7 +33,7 @@ class NewestBooksPriceAndRate extends StatelessWidget {
             : const SizedBox(),
         Text(
           volumeInfo.averageRating == null
-              ? "Not rate"
+              ? "Not rated"
               : "⭐️ ${volumeInfo.averageRating}/5",
           overflow: TextOverflow.clip,
           style: Styles.titleRate,
