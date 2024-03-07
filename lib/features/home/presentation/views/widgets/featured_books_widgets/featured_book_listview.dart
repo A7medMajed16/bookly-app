@@ -4,7 +4,7 @@ import 'package:bookly_app/core/widgets/custom_error_message.dart';
 
 import 'package:bookly_app/features/home/presentation/manager/featured_books_cubit/featured_books_cubit.dart';
 import 'package:bookly_app/core/widgets/book_card.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/featured_list_shimmer_loading.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/featured_books_widgets/featured_list_shimmer_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

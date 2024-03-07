@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utils/styles.dart';
 import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/newest_books_detail.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/newest_books_widgets/newest_books_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

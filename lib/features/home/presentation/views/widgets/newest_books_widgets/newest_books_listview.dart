@@ -5,7 +5,7 @@ import 'package:bookly_app/core/widgets/custom_error_message.dart';
 
 import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly_app/core/widgets/book_card.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/book_sell_info.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/home_view_widgets/book_sell_info.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
