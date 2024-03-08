@@ -14,6 +14,7 @@ abstract class AppRouter {
   static const String kHomeView = '/homeView';
   static const String kBookDetailsView = '/bookDetailsView';
   static const String kSearchView = '/searchView';
+  static const String kWebView = '/webView';
   static final router = GoRouter(
     routes: [
       GoRoute(

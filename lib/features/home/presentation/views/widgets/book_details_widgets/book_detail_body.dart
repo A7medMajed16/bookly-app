@@ -31,7 +31,9 @@ class BookDetailBody extends StatelessWidget {
             volumeInfo: bookModel.volumeInfo,
           ),
           const SizedBox(height: 20),
-          const BookDetailsActionsButtons(),
+          BookDetailsActionsButtons(
+            bookModel: bookModel,
+          ),
           const SizedBox(height: 20),
           const YouCanAlsoLikeSection(),
         ],
