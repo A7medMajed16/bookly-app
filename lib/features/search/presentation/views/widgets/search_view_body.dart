@@ -9,7 +9,7 @@ class SearchViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(25),
+      padding: EdgeInsets.only(right: 20, left: 20, top: 20),
       child: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Column(

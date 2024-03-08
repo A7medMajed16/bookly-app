@@ -39,11 +39,24 @@ class _BookDetailsActionsButtonsState extends State<BookDetailsActionsButtons> {
                       setState(() {
                         isLoading = true;
                       });
-
                       Uri uri =
                           Uri.parse(widget.bookModel.volumeInfo.previewLink!);
                       if (await canLaunchUrl(uri)) {
                         await launchUrl(uri);
+                      } else {
+                        // ignore: use_build_context_synchronously
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Can\'t launch the url',
+                              textAlign: TextAlign.center,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 2,
+                              style: Styles.titlePrice
+                                  .copyWith(color: Colors.red, fontSize: 15),
+                            ),
+                          ),
+                        );
                       }
                       setState(() {
                         isLoading = false;
