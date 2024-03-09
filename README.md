@@ -72,6 +72,7 @@ Dive into the world of Bookly and discover a reading experience that's as boundl
 | url_launcher             | ^6.2.5  |
 
 These packages collectively contribute to the seamless and robust performance of Bookly, ensuring a top-notch reading experience for all users.
+
 ---
 
 **Note:** The code is protected by GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007.
