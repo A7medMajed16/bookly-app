@@ -17,6 +17,7 @@ class _BookDetailsActionsButtonsState extends State<BookDetailsActionsButtons> {
   bool isLoading = false;
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 25),
       child: Row(
@@ -66,7 +67,7 @@ class _BookDetailsActionsButtonsState extends State<BookDetailsActionsButtons> {
                     text: isLoading == true ? 'Loading...' : 'Free preview',
                     textStyle: Styles.titleMedium.copyWith(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: width * 0.05,
                     ),
                     borderRadius: const BorderRadius.only(
                       topRight: Radius.circular(16),

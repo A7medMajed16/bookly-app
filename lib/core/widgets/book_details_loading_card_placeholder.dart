@@ -18,11 +18,11 @@ Shimmer loadingListPlaceHolder() {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ShimmerPlaceHolder(hight: 20, width: 250),
-              SizedBox(height: 10),
               ShimmerPlaceHolder(hight: 20, width: 200),
               SizedBox(height: 10),
-              ShimmerPlaceHolder(hight: 20, width: 230),
+              ShimmerPlaceHolder(hight: 20, width: 130),
+              SizedBox(height: 10),
+              ShimmerPlaceHolder(hight: 20, width: 150),
             ],
           )
         ],

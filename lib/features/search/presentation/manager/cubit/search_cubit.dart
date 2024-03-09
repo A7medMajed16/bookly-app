@@ -8,6 +8,7 @@ part 'search_state.dart';
 class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this.searchRepo) : super(SearchInitial());
   final SearchRepo searchRepo;
+  String? searchWord;
   Future<void> fitchSearchResult({required String searchWord}) async {
     emit(SearchLoading());
     var result = await searchRepo.fitchSearchResult(searchWord: searchWord);

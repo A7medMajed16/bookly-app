@@ -12,24 +12,14 @@ class SearchRepoImpl implements SearchRepo {
   Future<Either<Failure, List<BookModel>>> fitchSearchResult(
       {required String searchWord}) async {
     try {
-      Map<String, dynamic>? data;
-      int rounds = 0;
-      List<String> q = [
-        'intitle',
-        'inauthor',
-        'inpublisher',
-        'subject',
-        'isbn',
-        'lccn',
-        'oclc'
-      ];
-      while (data!.isEmpty && rounds < 7) {
-        data = await apiService.get(
-            endPoint: 'volumes?q=${q[rounds]}:$searchWord');
-      }
+      var data =
+          await apiService.get(endPoint: 'volumes?q=intitle:$searchWord');
+
       List<BookModel> books = [];
-      for (var item in data['items']) {
-        books.add(BookModel.fromJson(item));
+      if (data['totalItems'] != 0) {
+        for (var item in data['items']) {
+          books.add(BookModel.fromJson(item));
+        }
       }
       return right(books);
     } catch (e) {
