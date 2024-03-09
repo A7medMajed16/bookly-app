@@ -15,7 +15,7 @@ https://github.com/A7medMajed16/bookly-app/assets/86576698/d7f65306-e117-4cfe-b9
 ## Embark on a Literary Journey with Bookly
 Bookly is not just an app; it's your reading sanctuary. Crafted with Flutter and designed with the reader's journey in mind, Bookly transforms your device into a portal to uncharted literary landscapes. 
 
-## Project Splash Screen
+## Project Animated Splash Screen
 
 ![SplashScreen](https://github.com/A7medMajed16/bookly-app/assets/86576698/512f29bd-75b3-4132-878f-1498659bf6b4)
 
